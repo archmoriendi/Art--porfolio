@@ -1,0 +1,1301 @@
+<style>
+.arch-profile {
+    --blue: #b9dff5;
+    --blue-dark: #6da9d2;
+    --blue-deep: #4d82ad;
+    --blue-light: #edf8ff;
+    --blue-pale: #f7fcff;
+    --white: #ffffff;
+    --text: #344452;
+    --soft-text: #6d7f8c;
+    --border: #c9e6f7;
+
+    max-width: 850px;
+    margin: 20px auto;
+    padding: 12px;
+    background: var(--blue-light);
+    color: var(--text);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 13px;
+    line-height: 1.65;
+    border-radius: 22px;
+    position: relative;
+    overflow: hidden;
+}
+
+.arch-sticker {
+    position: absolute;
+    z-index: 20;
+    pointer-events: none;
+    transition: transform .35s ease;
+}
+
+.arch-profile:hover .arch-sticker {
+    animation: floaty 2.8s ease-in-out infinite;
+}
+
+.arch-sticker img {
+    width: 55px;
+    height: 55px;
+    object-fit: contain;
+}
+
+.sticker-one {
+    top: 165px;
+    left: 12px;
+    transform: rotate(-10deg);
+}
+
+.sticker-two {
+    top: 175px;
+    right: 8px;
+    transform: rotate(9deg);
+}
+
+.sticker-three {
+    top: 570px;
+    right: 12px;
+    transform: rotate(-8deg);
+}
+
+.sticker-four {
+    top: 910px;
+    left: 7px;
+    transform: rotate(8deg);
+}
+
+@keyframes floaty {
+    0%, 100% {
+        transform: translateY(0) rotate(-5deg);
+    }
+
+    50% {
+        transform: translateY(-8px) rotate(5deg);
+    }
+}
+
+.arch-banner {
+    position: relative;
+    height: 290px;
+    border-radius: 17px;
+    overflow: hidden;
+    background: #dceffc;
+    border: 3px solid white;
+    box-shadow: 0 5px 18px rgba(77, 130, 173, .15);
+}
+
+.arch-banner img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+}
+
+.arch-banner-overlay {
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(
+            to bottom,
+            rgba(255,255,255,.02) 30%,
+            rgba(50,100,140,.42) 100%
+        );
+}
+
+.arch-title {
+    position: absolute;
+    bottom: 20px;
+    left: 25px;
+    color: white;
+    text-shadow: 0 2px 5px rgba(40,75,100,.45);
+}
+
+.arch-title h1 {
+    margin: 0;
+    font-size: 32px;
+    font-weight: 900;
+    letter-spacing: 1px;
+}
+
+.arch-title p {
+    margin: 2px 0 0;
+    font-size: 13px;
+    letter-spacing: 1px;
+}
+
+.arch-nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 7px;
+    padding: 13px 5px;
+}
+
+.arch-nav a {
+    color: var(--blue-deep);
+    background: white;
+    border: 2px solid var(--border);
+    border-radius: 30px;
+    padding: 5px 13px;
+    text-decoration: none;
+    font-weight: 800;
+    font-size: 11px;
+    letter-spacing: .5px;
+    transition: all .25s ease;
+}
+
+.arch-nav a:hover {
+    background: var(--blue);
+    color: white;
+    transform: translateY(-3px) rotate(-1deg);
+    box-shadow: 0 5px 10px rgba(77,130,173,.15);
+}
+
+.arch-box {
+    background: white;
+    border: 2px solid var(--border);
+    border-radius: 17px;
+    padding: 20px;
+    margin: 10px 0;
+    box-shadow: 0 4px 12px rgba(77,130,173,.06);
+}
+
+.arch-heading {
+    text-align: center;
+    margin: 0 0 15px;
+    color: var(--blue-deep);
+    font-size: 18px;
+    font-weight: 900;
+    letter-spacing: 1px;
+}
+
+.arch-heading span {
+    color: #8bc5e9;
+}
+
+.arch-divider {
+    text-align: center;
+    color: var(--blue-dark);
+    letter-spacing: 5px;
+    margin: 8px 0 14px;
+}
+
+.arch-status {
+    text-align: center;
+    background: var(--blue-light);
+    border: 2px dashed var(--blue);
+    border-radius: 13px;
+    padding: 13px;
+    margin-bottom: 15px;
+}
+
+.arch-status strong {
+    color: var(--blue-deep);
+}
+
+.arch-name {
+    font-size: 20px;
+    font-weight: 900;
+    color: var(--blue-deep);
+}
+
+.arch-handle {
+    color: var(--soft-text);
+    font-size: 12px;
+}
+
+.arch-columns {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.arch-column {
+    flex: 1 1 280px;
+}
+
+.arch-social {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 7px 0;
+    text-decoration: none !important;
+    color: var(--text) !important;
+}
+
+.arch-social-icon {
+    width: 35px;
+    height: 35px;
+    flex: 0 0 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--blue-light);
+    border: 2px solid var(--border);
+    border-radius: 10px;
+    color: var(--blue-deep);
+    font-weight: 900;
+}
+
+.arch-social-name {
+    flex: 1;
+    padding: 7px 10px;
+    border: 2px solid var(--border);
+    border-radius: 10px;
+    background: white;
+    font-weight: 700;
+    transition: all .2s ease;
+}
+
+.arch-social:hover .arch-social-name {
+    background: var(--blue);
+    color: white;
+    transform: translateX(4px);
+}
+
+.arch-open {
+    display: inline-block;
+    padding: 4px 12px;
+    background: #d9f3df;
+    border: 2px solid #acd9b7;
+    color: #4f8760;
+    border-radius: 20px;
+    font-weight: 900;
+    font-size: 11px;
+}
+
+.arch-slots {
+    display: inline-block;
+    margin-left: 5px;
+    padding: 4px 12px;
+    background: var(--blue-light);
+    border: 2px solid var(--border);
+    color: var(--blue-deep);
+    border-radius: 20px;
+    font-weight: 900;
+    font-size: 11px;
+}
+
+.arch-price-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.arch-price-card {
+    flex: 1 1 180px;
+    background: var(--blue-pale);
+    border: 2px solid var(--border);
+    border-radius: 14px;
+    padding: 13px;
+    transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.arch-price-card:hover {
+    transform: translateY(-5px) rotate(-1deg);
+    box-shadow: 0 8px 18px rgba(77,130,173,.12);
+}
+
+.arch-price-card h3 {
+    text-align: center;
+    color: var(--blue-deep);
+    margin: 0 0 8px;
+    font-size: 14px;
+    letter-spacing: 1px;
+}
+
+.arch-price-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 4px 0;
+    border-bottom: 1px dotted #c9e6f7;
+}
+
+.arch-price-row:last-child {
+    border-bottom: 0;
+}
+
+.arch-price {
+    color: var(--blue-deep);
+    font-weight: 900;
+}
+
+.arch-mini-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 9px;
+}
+
+.arch-mini {
+    flex: 1 1 150px;
+    background: var(--blue-light);
+    border: 2px solid var(--border);
+    border-radius: 12px;
+    padding: 10px;
+    text-align: center;
+}
+
+.arch-mini strong {
+    display: block;
+    color: var(--blue-deep);
+    margin-bottom: 3px;
+}
+
+.arch-tos details {
+    margin: 9px 0;
+    background: var(--blue-pale);
+    border: 2px solid var(--border);
+    border-radius: 14px;
+    overflow: hidden;
+    transition: box-shadow .25s ease;
+}
+
+.arch-tos details[open] {
+    box-shadow: 0 5px 14px rgba(77,130,173,.1);
+}
+
+.arch-tos summary {
+    cursor: pointer;
+    list-style: none;
+    padding: 13px 16px;
+    color: var(--blue-deep);
+    font-weight: 900;
+    font-size: 14px;
+    background: white;
+}
+
+.arch-tos summary::-webkit-details-marker {
+    display: none;
+}
+
+.arch-tos summary:after {
+    content: "＋";
+    float: right;
+    font-size: 17px;
+    transition: transform .2s ease;
+}
+
+.arch-tos details[open] summary:after {
+    content: "−";
+}
+
+.arch-tos summary:hover {
+    background: var(--blue-light);
+}
+
+.arch-tos-content {
+    padding: 15px 17px;
+    border-top: 2px solid var(--border);
+}
+
+.arch-tos-content h4 {
+    color: var(--blue-deep);
+    margin: 13px 0 5px;
+    font-size: 13px;
+}
+
+.arch-tos-content h4:first-child {
+    margin-top: 0;
+}
+
+.arch-tos-content ul {
+    margin-top: 5px;
+    padding-left: 21px;
+}
+
+.arch-tos-content li {
+    margin-bottom: 5px;
+}
+
+.arch-footer {
+    text-align: center;
+    padding: 20px 10px 10px;
+    color: var(--soft-text);
+}
+
+.arch-footer a {
+    color: var(--blue-deep);
+    font-weight: 900;
+}
+
+@media (max-width: 600px) {
+
+    .arch-profile {
+        margin: 5px auto;
+        padding: 7px;
+        border-radius: 15px;
+    }
+
+    .arch-banner {
+        height: 220px;
+    }
+
+    .arch-title {
+        left: 16px;
+        bottom: 15px;
+    }
+
+    .arch-title h1 {
+        font-size: 24px;
+    }
+
+    .arch-title p {
+        font-size: 11px;
+    }
+
+    .arch-box {
+        padding: 14px;
+    }
+
+    .arch-sticker img {
+        width: 80px;
+        height: 80px;
+    }
+
+    .sticker-one {
+        left: 0;
+    }
+
+    .sticker-two {
+        right: 0;
+    }
+}
+
+.arch-bow-banner {
+    position: absolute;
+    top: 20px;
+    right: 15px;
+    width: 100%;
+    z-index: 30;
+    pointer-events: none;
+}
+
+.arch-bow-banner img {
+    width: 100%;
+    height: 210px;
+    display: block;
+    object-fit: contain;
+}
+</style>
+
+<div class="arch-profile">
+  
+   <div class="arch-bow-banner">
+    <img src="https://ninachii.carrd.co/assets/images/image02.gif?v=8ed3e12c"> 
+    </div>
+    <div class="arch-sticker sticker-one">
+        <img src="https://media.tenor.com/H47MXMqd684AAAAj/blue.gif">
+    </div>
+
+    <div class="arch-sticker sticker-two">
+        <img src="https://i.pinimg.com/originals/5c/26/99/5c2699fa2b4d896d05d13e72b83ce9a7.gif">
+    </div>
+
+    <div class="arch-sticker sticker-three">
+        <img src="https://i.pinimg.com/originals/ab/29/de/ab29de75abbeaa420d180a120e1050b8.gif">
+    </div>
+
+    <div class="arch-sticker sticker-four">
+        <img src="https://cdn3.emoji.gg/emojis/77793-blue-jellyfish.gif">
+    </div>
+
+    <div class="arch-banner">
+
+        <img src="https://64.media.tumblr.com/f24fc5ae0b79e1b5811a732f672d914d/5e09ca6b6971309a-b3/s2048x3072/dbf1f4a43de25472855b7bed33d3b8cf44d1a52d.pnj">
+
+        <div class="arch-banner-overlay"></div>
+
+        <div class="arch-title">
+            <h1>Arch Moriendi</h1>
+            <p>@arch_imimes · artist · commissions</p>
+        </div>
+
+    </div>
+
+    <div class="arch-nav">
+
+        <a href="#commissions">♡ COMMISSIONS</a>
+
+        <a href="#socials">✦ SOCIALS</a>
+
+        <a href="#tos">♡ TERMS</a>
+
+        <a href="#about">✧ ABOUT</a>
+
+    </div>
+
+    <div class="arch-box" id="about">
+
+        <div class="arch-status">
+
+            <div class="arch-name">
+                Arch Moriendi
+            </div>
+
+            <div class="arch-handle">
+                @arch_imimes
+            </div>
+
+            <div style="margin-top:8px;">
+                ✦ digital artist · character art · commissions ✦
+            </div>
+
+        </div>
+
+        <div class="arch-divider">
+            ｡ﾟ✶ฺ.⋆｡ﾟ✶ฺ.⋆｡ﾟ✶ฺ
+        </div>
+
+        <p style="text-align:center; margin:0;">
+            Welcome to my little corner of the internet ♡
+            <br>
+            I draw furry characters, semi-realism, chibis and yumeships.
+            <br>
+            Please check my commission information and terms before ordering!
+        </p>
+
+    </div>
+
+    <div class="arch-columns">
+
+        <div class="arch-box arch-column" id="socials">
+
+            <div class="arch-heading">
+                SOCIALS <span>♡</span>
+            </div>
+
+            <a
+                class="arch-social"
+                href="https://www.facebook.com/profile.php?id=61593930975034"
+            >
+
+                <div class="arch-social-icon">
+                    f
+                </div>
+
+                <div class="arch-social-name">
+                    Facebook
+                </div>
+
+            </a>
+
+            <a
+                class="arch-social"
+                href="https://www.tiktok.com/@arch_imime"
+            >
+
+                <div class="arch-social-icon">
+                    ♪
+                </div>
+
+                <div class="arch-social-name">
+                    TikTok · @arch_imime
+                </div>
+
+            </a>
+
+            <a
+                class="arch-social"
+                href="https://discord.com/users/1508752331536207926"
+            >
+
+                <div class="arch-social-icon">
+                    ♡
+                </div>
+
+                <div class="arch-social-name">
+                    Discord
+                </div>
+
+            </a>
+
+            <p style="text-align:center; margin:13px 0 0; color:#6d7f8c;">
+                DM me through any of these for inquiries!
+            </p>
+
+        </div>
+
+        <div class="arch-box arch-column">
+
+            <div class="arch-heading">
+                QUICK INFO <span>✦</span>
+            </div>
+
+            <div class="arch-mini-grid">
+
+                <div class="arch-mini">
+                    <strong>STATUS</strong>
+                    OPEN ♡
+                </div>
+
+                <div class="arch-mini">
+                    <strong>SLOTS</strong>
+                    3
+                </div>
+
+                <div class="arch-mini">
+                    <strong>TAT</strong>
+                    3–18 days
+                </div>
+
+                <div class="arch-mini">
+                    <strong>PAYMENT</strong>
+                    PayPal · Ko-fi · GCash
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="arch-box" id="commissions">
+
+        <div class="arch-heading">
+            COMMISSIONS <span>୨୧</span>
+        </div>
+
+        <div style="text-align:center; margin-bottom:15px;">
+
+            <span class="arch-open">
+                OPEN ♡
+            </span>
+
+            <span class="arch-slots">
+                3 SLOTS
+            </span>
+
+        </div>
+
+        <div class="arch-divider">
+            ╭──────── ⋆｡ﾟ✶ฺ.⋆｡ﾟ✶ฺ ────────╮
+        </div>
+
+        <div class="arch-price-grid">
+
+            <div class="arch-price-card">
+
+                <h3>SKETCH</h3>
+
+                <div class="arch-price-row">
+                    <span>Head</span>
+                    <span class="arch-price">$2 / ₱120</span>
+                </div>
+
+                <div class="arch-price-row">
+                    <span>Bust</span>
+                    <span class="arch-price">$3 / ₱180</span>
+                </div>
+
+                <div class="arch-price-row">
+                    <span>Waist</span>
+                    <span class="arch-price">$10 / ₱240</span>
+                </div>
+
+                <div class="arch-price-row">
+                    <span>Full body</span>
+                    <span class="arch-price">$15 / ₱400</span>
+                </div>
+
+            </div>
+
+            <div class="arch-price-card">
+
+                <h3>RENDERED</h3>
+
+                <div class="arch-price-row">
+                    <span>Head</span>
+                    <span class="arch-price">$10 / ₱350</span>
+                </div>
+
+                <div class="arch-price-row">
+                    <span>Bust</span>
+                    <span class="arch-price">$12 / ₱400</span>
+                </div>
+
+                <div class="arch-price-row">
+                    <span>Waist</span>
+                    <span class="arch-price">$20 / ₱600</span>
+                </div>
+
+                <div class="arch-price-row">
+                    <span>Full body</span>
+                    <span class="arch-price">$30 / ₱960</span>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div style="margin-top:12px;" class="arch-mini-grid">
+
+            <div class="arch-mini">
+                <strong>EYE BANNER</strong>
+                $3 / ₱200
+            </div>
+
+            <div class="arch-mini">
+                <strong>SIMPLE BG</strong>
+                FREE
+                <br>
+                solid / gradient / shapes
+            </div>
+
+            <div class="arch-mini">
+                <strong>SIMPLE SCENE</strong>
+                $5–$10
+            </div>
+
+            <div class="arch-mini">
+                <strong>DETAILED BG</strong>
+                N/A
+            </div>
+
+        </div>
+
+        <div style="margin-top:15px;" class="arch-columns">
+
+            <div class="arch-mini">
+
+                <strong>PAYMENT</strong>
+
+                PayPal
+                · Ko-fi
+                · GCash
+
+            </div>
+
+            <div class="arch-mini">
+
+                <strong>TAT</strong>
+
+                3–18 days
+
+            </div>
+
+            <div class="arch-mini">
+
+                <strong>I CAN DRAW</strong>
+
+                Furry
+                · Semi-realism
+                · Chibi
+                · Yumeship
+
+            </div>
+
+        </div>
+
+        <div style="
+            margin-top:15px;
+            padding:13px;
+            background:#edf8ff;
+            border:2px dashed #b9dff5;
+            border-radius:13px;
+            text-align:center;
+        ">
+
+            <strong style="color:#4d82ad;">
+                BEFORE ORDERING ♡
+            </strong>
+
+            <br>
+
+            State your commission type when ordering.
+            <br>
+            Provide clear references and explain what you want.
+            <br>
+            Payment is made after the sketch is completed.
+            <br>
+            Specific poses, expressions, outfits, etc. can be discussed.
+
+        </div>
+
+        <div class="arch-divider" style="margin-top:15px;">
+            ⋆｡ﾟ✶ฺ.⋆｡ﾟ✶ฺ.⋆｡ﾟ✶ฺ
+        </div>
+
+        <p style="text-align:center; margin-bottom:0;">
+
+            <strong style="color:#4d82ad;">
+                DM me for inquiries! ♡
+            </strong>
+
+        </p>
+
+    </div>
+    
+<div class="arch-box arch-tos" id="tos">
+
+        <div class="arch-heading">
+            TERMS <span>♡</span>
+        </div>
+
+        <p style="text-align:center; color:#6d7f8c;">
+            Please read the appropriate terms before purchasing or commissioning.
+        </p>
+
+        <details>
+
+            <summary>
+                ♡ ADOPTABLES — TERMS OF USE
+            </summary>
+
+            <div class="arch-tos-content">
+
+                <p>
+                    <strong>TERMS OF USE</strong>
+                </p>
+
+                <ul>
+
+                    <li>
+                        Buyer receives ownership of the character design
+                        after full payment.
+                    </li>
+
+                    <li>
+                        You may change the character's name, personality,
+                        story, outfit, colors, and other design details.
+                    </li>
+
+                    <li>
+                        You may use the character personally or commercially
+                        and commission other artists to draw them.
+                    </li>
+
+                    <li>
+                        I retain the copyright to the original artwork I created.
+                        You may not claim or resell my artwork as your own.
+                    </li>
+
+                    <li>
+                        I may continue using the character and artwork I created
+                        for my portfolio, commission sheets, social media,
+                        and promotional purposes.
+                    </li>
+
+                    <li>
+                        When I display the character after it has been sold,
+                        I will credit the current owner when reasonably possible.
+                    </li>
+
+                    <li>
+                        The character may be traded, gifted, or resold.
+                    </li>
+
+                    <li>
+                        Please do not use my artwork or the character for
+                        AI training or NFTs without my permission.
+                    </li>
+
+                    <li>
+                        Please ask any questions before bidding.
+                    </li>
+
+                    <li>
+                        All adoptable sales are final after payment unless
+                        otherwise agreed.
+                    </li>
+
+                    <li>
+                        If payment is not completed within the agreed time,
+                        the sale may be cancelled and the character may be
+                        offered to another bidder.
+                    </li>
+
+                </ul>
+
+                <div style="
+                    margin-top:12px;
+                    padding:10px;
+                    background:white;
+                    border:2px dashed #b9dff5;
+                    border-radius:10px;
+                    text-align:center;
+                    color:#4d82ad;
+                    font-weight:800;
+                ">
+                    By bidding or purchasing, you agree to these Terms of Use. ♡
+                </div>
+
+            </div>
+
+        </details>
+
+        <details>
+
+            <summary>
+                ✦ ART COMMISSIONS — TERMS OF SERVICE
+            </summary>
+
+            <div class="arch-tos-content">
+
+                <p>
+                    <strong>ART COMMISSION TERMS OF SERVICE</strong>
+                </p>
+
+                <p>
+                    Please read carefully before commissioning.
+                </p>
+
+                <h4>1. GENERAL</h4>
+
+                <ul>
+
+                    <li>
+                        By commissioning me, you confirm that you have read,
+                        understood, and agreed to these Terms of Service.
+                    </li>
+
+                    <li>
+                        I reserve the right to accept or decline any commission
+                        request for any reason.
+                    </li>
+
+                    <li>
+                        Commission slots are limited and are handled on a
+                        first-come, first-served basis unless stated otherwise.
+                    </li>
+
+                    <li>
+                        I may use commissioned artwork as part of my portfolio,
+                        commission samples, social media posts, or promotional
+                        material unless you request privacy before the commission begins.
+                    </li>
+
+                    <li>
+                        Commissioning artwork does not transfer my copyright
+                        or ownership of the artwork to the client.
+                    </li>
+
+                    <li>
+                        You may not claim the artwork as your own or use it to
+                        train, develop, or improve AI systems.
+                    </li>
+
+                </ul>
+
+                <h4>2. PAYMENT</h4>
+
+                <ul>
+
+                    <li>
+                        Half payment is required before I begin the commission
+                        unless another payment arrangement has been agreed upon.
+                    </li>
+
+                    <li>
+                        Payment must be made through the payment method I provide.
+                    </li>
+
+                    <li>
+                        I will not begin working on the commission until payment
+                        has been received.
+                    </li>
+
+                    <li>
+                        Please do not send payment before your commission has
+                        been accepted and an invoice/payment request has been provided.
+                    </li>
+
+                    <li>
+                        Additional charges may apply for complicated designs,
+                        extra characters, detailed backgrounds, commercial use,
+                        or major revisions.
+                    </li>
+
+                </ul>
+
+                <h4>3. COMMISSION PROCESS</h4>
+
+                <ul>
+
+                    <li>
+                        I will provide a sketch for approval when the commission
+                        type includes a sketch stage.
+                    </li>
+
+                    <li>
+                        Please make sure your references and instructions are
+                        complete before I begin.
+                    </li>
+
+                    <li>
+                        Delays in receiving references, information, or feedback
+                        may extend the completion time.
+                    </li>
+
+                    <li>
+                        Completion times are estimates, not guaranteed deadlines,
+                        unless a specific deadline has been agreed upon beforehand.
+                    </li>
+
+                    <li>
+                        I may take longer for commissions involving highly detailed
+                        characters, complicated designs, multiple characters, or backgrounds.
+                    </li>
+
+                </ul>
+
+                <h4>4. REVISIONS</h4>
+
+                <ul>
+
+                    <li>
+                        Minor revisions are allowed during the sketch stage.
+                    </li>
+
+                    <li>
+                        Major changes after the sketch has been approved may
+                        require an additional fee.
+                    </li>
+
+                    <li>
+                        Once the artwork has entered the rendering/final stage,
+                        only minor corrections may be made.
+                    </li>
+
+                    <li>
+                        Major changes requested after approval may be refused
+                        or charged depending on the amount of additional work required.
+                    </li>
+
+                    <li>
+                        Please review the sketch carefully before approving it.
+                    </li>
+
+                </ul>
+
+                <h4>5. REFUNDS &amp; CANCELLATIONS</h4>
+
+                <ul>
+
+                    <li>
+                        Refunds are generally not available once significant
+                        work has begun.
+                    </li>
+
+                    <li>
+                        If I cancel the commission for personal or other circumstances,
+                        you will receive a refund for the unfinished portion of the work.
+                    </li>
+
+                    <li>
+                        If you cancel after I have started working, the refundable
+                        amount may depend on how much work has already been completed.
+                    </li>
+
+                    <li>
+                        Digital files that have already been delivered are not
+                        eligible for refunds.
+                    </li>
+
+                </ul>
+
+                <h4>6. COPYRIGHT &amp; USAGE</h4>
+
+                <p>
+                    The artist retains the copyright to the artwork unless a
+                    separate copyright transfer agreement has been made.
+                </p>
+
+                <p><strong>The client MAY:</strong></p>
+
+                <ul>
+
+                    <li>Use the artwork for personal purposes.</li>
+
+                    <li>
+                        Post the artwork on personal social media with proper credit.
+                    </li>
+
+                    <li>
+                        Use the artwork as a profile picture, banner, wallpaper,
+                        or similar personal decoration.
+                    </li>
+
+                    <li>Print the artwork for personal use.</li>
+
+                </ul>
+
+                <p><strong>The client MAY NOT:</strong></p>
+
+                <ul>
+
+                    <li>Claim the artwork as their own.</li>
+
+                    <li>
+                        Remove my watermark or signature without permission.
+                    </li>
+
+                    <li>
+                        Resell, redistribute, or trace the artwork.
+                    </li>
+
+                    <li>
+                        Edit or heavily modify the artwork without permission.
+                    </li>
+
+                    <li>
+                        Use the artwork for commercial purposes unless commercial
+                        rights have been purchased.
+                    </li>
+
+                    <li>
+                        Use the artwork for AI training, AI datasets, generative AI,
+                        or similar machine-learning purposes.
+                    </li>
+
+                    <li>
+                        Mint, sell, or distribute the artwork as an NFT without
+                        explicit permission.
+                    </li>
+
+                </ul>
+
+                <h4>7. COMMERCIAL USE</h4>
+
+                <p>
+                    Personal-use commissions do not automatically include
+                    commercial rights.
+                </p>
+
+                <p>
+                    If you intend to use the artwork for merchandise, branding,
+                    advertising, book covers, monetized content, products for sale,
+                    business or promotional purposes, or other commercial activity,
+                    please inform me before commissioning.
+                </p>
+
+                <p>
+                    Commercial usage may require an additional fee depending
+                    on the intended use.
+                </p>
+
+                <h4>8. CREDIT</h4>
+
+                <p>
+                    When posting the artwork publicly, credit is appreciated
+                    and may be required depending on the commission agreement.
+                </p>
+
+                <p>
+                    Please credit me using my provided artist name or social
+                    media handle.
+                </p>
+
+                <p>
+                    Do not present commissioned artwork as artwork created
+                    by another artist.
+                </p>
+
+                <h4>9. AI &amp; ART REPRODUCTION</h4>
+
+                <ul>
+
+                    <li>
+                        My artwork may not be submitted to generative AI services,
+                        AI training datasets, image generators, or similar systems
+                        without my explicit written permission.
+                    </li>
+
+                    <li>
+                        You may not use my artwork to create AI-generated
+                        reproductions, variations, edits, or derivatives.
+                    </li>
+
+                    <li>
+                        You may not use AI-generated artwork as a replacement
+                        for my commissioned work while representing it as the
+                        original commission.
+                    </li>
+
+                </ul>
+
+                <h4>10. AGREEMENT</h4>
+
+                <p>
+                    By commissioning me, you acknowledge that you have read
+                    and agreed to these Terms of Service.
+                </p>
+
+                <p>
+                    If you have questions about anything in these terms,
+                    please clarify them before payment.
+                </p>
+
+                <p>
+                    I reserve the right to update these Terms of Service when
+                    necessary. The terms applicable to your commission will be
+                    the terms agreed upon at the time your commission is accepted.
+                </p>
+
+                <div style="
+                    margin-top:15px;
+                    padding:12px;
+                    background:white;
+                    border:2px dashed #b9dff5;
+                    border-radius:10px;
+                    text-align:center;
+                    color:#4d82ad;
+                    font-weight:800;
+                ">
+                    Thank you for supporting my art! ♡
+                </div>
+
+            </div>
+
+        </details>
+
+    </div>
+
+    <div class="arch-footer">
+
+        <div style="
+            color:#8bc5e9;
+            font-size:16px;
+            letter-spacing:5px;
+            margin-bottom:7px;
+        ">
+            ⋆｡ﾟ✶ฺ.⋆｡ﾟ✶ฺ.⋆｡ﾟ✶ฺ
+        </div>
+
+        <strong>
+            ARCH MORIENDI
+        </strong>
+
+        <br>
+
+        <span>
+            @arch_imimes · art · commissions · adopts
+        </span>
+
+        <br><br>
+
+        <a href="#commissions">
+            COMMISSIONS
+        </a>
+
+        &nbsp;♡&nbsp;
+
+        <a href="#tos">
+            TERMS
+        </a>
+
+        &nbsp;♡&nbsp;
+
+        <a href="#socials">
+            SOCIALS
+        </a>
+
+        <br><br>
+
+        <span style="font-size:11px;">
+            made with questionable amounts of affection ♡
+        </span>
+
+    </div>
+
+</div>
