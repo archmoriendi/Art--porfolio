@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arch Moriendi | Portfolio</title>
+  <style>
+    :root {
+      --blue: #b9dff5;
+      --blue-dark: #6da9d2;
+      --blue-deep: #4d82ad;
+      --blue-light: #edf8ff;
+      --blue-pale: #f7fcff;
+      --text: #344452;
+      --soft-text: #6d7f8c;
+      --border: #c9e6f7;
+      --white: #fff;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      padding: 20px 12px 40px;
+      background: #f4faff;
+      color: var(--text);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .portfolio {
+      width: min(100%, 1000px);
+      margin: 0 auto;
+      padding: 12px;
+      background: var(--blue-light);
+      border: 2px solid var(--border);
+    }
+
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      padding: 7px 4px 15px;
+    }
+
+    .brand {
+      color: var(--blue-deep);
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: 1.5px;
+    }
+
+    .back-button {
+      display: inline-block;
+      padding: 8px 14px;
+      border: 2px solid var(--blue-dark);
+      background: var(--white);
+      color: var(--blue-deep);
+      text-decoration: none;
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: .7px;
+      transition: .2s ease;
+    }
+
+    .back-button:hover {
+      background: var(--blue);
+      color: white;
+      transform: translateY(-2px);
+    }
+
+    .hero {
+      position: relative;
+      min-height: 220px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 25px;
+      overflow: hidden;
+      border: 3px solid white;
+      background:
+        linear-gradient(0deg, rgba(39,83,119,.72), rgba(39,83,119,.05)),
+        url("https://64.media.tumblr.com/f24fc5ae0b79e1b5811a732f672d914d/5e09ca6b6971309a-b3/s2048x3072/dbf1f4a43de25472855b7bed33d3b8cf44d1a52d.pnj") center 42% / cover;
+    }
+
+    .hero h1 {
+      margin: 0;
+      color: white;
+      font-size: clamp(27px, 5vw, 42px);
+      line-height: 1.1;
+      letter-spacing: 1px;
+      text-shadow: 0 2px 7px rgba(0,0,0,.25);
+    }
+
+    .hero p {
+      margin: 7px 0 0;
+      color: white;
+      font-size: 12px;
+      letter-spacing: 1px;
+    }
+
+    .intro {
+      margin: 12px 0;
+      padding: 14px;
+      border: 2px solid var(--border);
+      background: white;
+      text-align: center;
+    }
+
+    .intro strong { color: var(--blue-deep); }
+
+    .category {
+      margin: 14px 0;
+      padding: 17px;
+      border: 2px solid var(--border);
+      background: white;
+    }
+
+    .category-heading {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 10px;
+      margin-bottom: 5px;
+    }
+
+    .category-heading h2 {
+      margin: 0;
+      color: var(--blue-deep);
+      font-size: 18px;
+      letter-spacing: 1.2px;
+    }
+
+    .category-heading span {
+      color: var(--soft-text);
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 1px;
+    }
+
+    .category-note {
+      margin: 0 0 13px;
+      color: var(--soft-text);
+      font-size: 12px;
+    }
+
+    /* Each gallery is a horizontal scrolling strip. */
+    .art-strip {
+      display: grid;
+      grid-auto-flow: column;
+      grid-auto-columns: minmax(190px, 27%);
+      grid-template-rows: 1fr;
+      gap: 12px;
+      overflow-x: auto;
+      overflow-y: hidden;
+      padding: 3px 2px 13px;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: thin;
+      scrollbar-color: var(--blue-dark) var(--blue-light);
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .art-strip::-webkit-scrollbar { height: 9px; }
+    .art-strip::-webkit-scrollbar-track { background: var(--blue-light); }
+    .art-strip::-webkit-scrollbar-thumb {
+      background: var(--blue-dark);
+      border: 2px solid var(--blue-light);
+    }
+
+    .art-card {
+      min-width: 0;
+      scroll-snap-align: start;
+      border: 2px solid var(--border);
+      background: var(--blue-pale);
+      transition: transform .2s ease, border-color .2s ease;
+    }
+
+    .art-card:hover {
+      transform: translateY(-3px);
+      border-color: var(--blue-dark);
+    }
+
+    .art-image {
+      display: block;
+      width: 100%;
+      height: 245px;
+      object-fit: cover;
+      background: #e2f2fc;
+      border-bottom: 2px solid var(--border);
+    }
+
+    .art-caption {
+      padding: 8px 10px 10px;
+    }
+
+    .art-caption strong {
+      display: block;
+      color: var(--blue-deep);
+      font-size: 12px;
+    }
+
+    .art-caption span {
+      color: var(--soft-text);
+      font-size: 10px;
+    }
+
+    .empty-art {
+      height: 245px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 7px;
+      padding: 15px;
+      border-bottom: 2px solid var(--border);
+      color: var(--blue-deep);
+      text-align: center;
+      background:
+        linear-gradient(135deg, transparent 48%, rgba(185,223,245,.35) 49%, rgba(185,223,245,.35) 51%, transparent 52%),
+        var(--blue-light);
+      background-size: 18px 18px;
+    }
+
+    .empty-art b { font-size: 25px; }
+    .empty-art small {
+      max-width: 150px;
+      color: var(--soft-text);
+      font-size: 10px;
+    }
+
+    .scroll-hint {
+      margin: 5px 0 0;
+      color: var(--blue-dark);
+      text-align: right;
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: .7px;
+    }
+
+    footer {
+      padding: 17px 8px 8px;
+      color: var(--soft-text);
+      text-align: center;
+      font-size: 11px;
+    }
+
+    footer strong {
+      display: block;
+      color: var(--blue-deep);
+      letter-spacing: 1.5px;
+    }
+
+    @media (max-width: 650px) {
+      body { padding: 7px 5px 25px; }
+      .portfolio { padding: 7px; }
+      .hero { min-height: 180px; padding: 17px; }
+      .category { padding: 12px; }
+      .art-strip { grid-auto-columns: minmax(170px, 72%); }
+      .art-image, .empty-art { height: 225px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="portfolio">
+    <div class="topbar">
+      <div class="brand">ARCH MORIENDI · ART PORTFOLIO</div>
+      <a class="back-button" href="index.html">← BACK TO HOME</a>
+    </div>
+
+    <header class="hero">
+      <h1>ART PORTFOLIO</h1>
+      <p>@arch_imimes · SELECTED ARTWORKS</p>
+    </header>
+
+    <div class="intro">
+      <strong>Welcome to my gallery ♡</strong><br>
+      A collection of my character illustrations, from portraits to full-body pieces.
+      Scroll each gallery sideways to view more artworks.
+    </div>
+
+    <section class="category" id="headshots">
+      <div class="category-heading">
+        <h2>HEAD SHOTS <span>♡</span></h2>
+        <span>01 / PORTRAITS</span>
+      </div>
+      <p class="category-note">Character portraits, icons, and close-up illustrations.</p>
+      <div class="art-strip">
+        <!-- Replace each placeholder with an image:
+             <img class="art-image" src="images/your-artwork.jpg" alt="Artwork title">
+             Keep the image inside an .art-card. Duplicate cards to add more works. -->
+        <article class="art-card">
+          <div class="empty-art"><b>＋</b><small>ADD HEAD SHOT ARTWORK</small></div>
+          <div class="art-caption"><strong>Artwork title</strong><span>Head shot · Year</span></div>
+        </article>
+        <article class="art-card">
+          <div class="empty-art"><b>＋</b><small>ADD HEAD SHOT ARTWORK</small></div>
+          <div class="art-caption"><strong>Artwork title</strong><span>Head shot · Year</span></div>
+        </article>
+        <article class="art-card">
+          <div class="empty-art"><b>＋</b><small>ADD HEAD SHOT ARTWORK</small></div>
+          <div class="art-caption"><strong>Artwork title</strong><span>Head shot · Year</span></div>
+        </article>
+        <article class="art-card">
+          <div class="empty-art"><b>＋</b><small>ADD HEAD SHOT ARTWORK</small></div>
+          <div class="art-caption"><strong>Artwork title</strong><span>Head shot · Year</span></div>
+        </article>
+      </div>
+      <p class="scroll-hint">SCROLL SIDEWAYS →</p>
+    </section>
+
+    <section class="category" id="halfbody">
+      <div class="category-heading">
+        <h2>HALF BODY <span>✦</span></h2>
+        <span>02 / HALF BODY</span>
+      </div>
+      <p class="category-note">Bust-up, waist-up, and half-body character illustrations.</p>
+      <div class="art-strip">
+        <article class="art-card">
+          <div class="empty-art"><b>＋</b><small>ADD HALF BODY ARTWORK</small></div>
+          <div class="art-caption"><strong>Artwork title</strong><span>Half body · Year</span></div>
+        </article>
+        <article class="art-card">
+          <div class="empty-art"><b>＋</b><small>ADD HALF BODY ARTWORK</small></div>
+          <div class="art-caption"><strong>Artwork title</strong><span>Half body · Year</span></div>
+        </article>
+        <article class="art-card">
+          <div class="empty-art"><b>＋</b><small>ADD HALF BODY ARTWORK</small></div>
+          <div class="art-caption"><strong>Artwork title</strong><span>Half body · Year</span></div>
+        </article>
+        <article class="art-card">
+          <div class="empty-art"><b>＋</b><small>ADD HALF BODY ARTWORK</small></div>
+          <div class="art-caption"><strong>Artwork title</strong><span>Half body · Year</span></div>
+        </article>
+      </div>
+      <p class="scroll-hint">SCROLL SIDEWAYS →</p>
+    </section>
+
+    <section class="category" id="wholebody">
+      <div class="category-heading">
+        <h2>WHOLE BODY <span>୨୧</span></h2>
+        <span>03 / FULL BODY</span>
+      </div>
+      <p class="category-note">Full character designs, outfits, and complete illustrations.</p>
+      <div class="art-strip">
+        <article class="art-card">
+          <div class="empty-art"><b>＋</b><small>ADD WHOLE BODY ARTWORK</small></div>
+          <div class="art-caption"><strong>Artwork title</strong><span>Whole body · Year</span></div>
+        </article>
+        <article class="art-card">
+          <div class="empty-art"><b>＋</b><small>ADD WHOLE BODY ARTWORK</small></div>
+          <div class="art-caption"><strong>Artwork title</strong><span>Whole body · Year</span></div>
+        </article>
+        <article class="art-card">
+          <div class="empty-art"><b>＋</b><small>ADD WHOLE BODY ARTWORK</small></div>
+          <div class="art-caption"><strong>Artwork title</strong><span>Whole body · Year</span></div>
+        </article>
+        <article class="art-card">
+          <div class="empty-art"><b>＋</b><small>ADD WHOLE BODY ARTWORK</small></div>
+          <div class="art-caption"><strong>Artwork title</strong><span>Whole body · Year</span></div>
+        </article>
+      </div>
+      <p class="scroll-hint">SCROLL SIDEWAYS →</p>
+    </section>
+
+    <footer>
+      <strong>ARCH MORIENDI</strong>
+      @arch_imimes · digital artist · character art
+      <br><br>
+      <a class="back-button" href="index.html">RETURN TO MAIN PAGE</a>
+    </footer>
+  </main>
+</body>
+</html>
